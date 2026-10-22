@@ -1,0 +1,396 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-red: #0B3A78;
+  --bg-deep: #0B0B0F;
+  --bg-surface: #141418;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-deep);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffffff;
+  caret-color: #ffffff;
+  box-shadow: 0 0 0 1000px #020407 inset;
+  border-color: var(--brand-red);
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+input:-moz-autofill {
+  box-shadow: 0 0 0 1000px #020407 inset;
+  caret-color: #ffffff;
+  color: #ffffff;
+  border-color: var(--brand-red);
+}
+
+.light-mode input:-webkit-autofill,
+.light-mode input:-webkit-autofill:hover,
+.light-mode input:-webkit-autofill:focus,
+.light-mode input:-webkit-autofill:active {
+  -webkit-text-fill-color: #1e293b !important;
+  caret-color: #1e293b !important;
+  box-shadow: 0 0 0 1000px #f3f4f6 inset !important;
+  border-color: rgba(125, 82, 255, 0.3) !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.light-mode input:-moz-autofill {
+  box-shadow: 0 0 0 1000px #f3f4f6 inset !important;
+  caret-color: #1e293b !important;
+  color: #1e293b !important;
+  border-color: rgba(125, 82, 255, 0.3) !important;
+}
+
+@layer utilities {
+  .text-brand-red,
+  .hover\:text-brand-red:hover,
+  .group:hover .group-hover\:text-brand-red,
+  .group:focus-within .group-focus-within\:text-brand-red {
+    color: var(--brand-red);
+  }
+
+  .bg-brand-red {
+    background-color: var(--brand-red);
+  }
+
+  .bg-brand-red\/5 {
+    background-color: rgba(11, 58, 120, 0.05);
+  }
+
+  .bg-brand-red\/10 {
+    background-color: rgba(11, 58, 120, 0.1);
+  }
+
+  .bg-brand-red\/20 {
+    background-color: rgba(11, 58, 120, 0.2);
+  }
+
+  .bg-brand-red\/40 {
+    background-color: rgba(11, 58, 120, 0.4);
+  }
+
+  .bg-brand-red\/60 {
+    background-color: rgba(11, 58, 120, 0.6);
+  }
+
+  .border-brand-red,
+  .focus\:border-brand-red:focus {
+    border-color: var(--brand-red);
+  }
+
+  .border-brand-red\/20 {
+    border-color: rgba(11, 58, 120, 0.2);
+  }
+
+  .border-brand-red\/30 {
+    border-color: rgba(11, 58, 120, 0.3);
+  }
+
+  .border-l-brand-red {
+    border-left-color: var(--brand-red);
+  }
+
+  .border-t-brand-red {
+    border-top-color: var(--brand-red);
+  }
+
+  .group:focus-within .group-focus-within\:border-brand-red\/50 {
+    border-color: rgba(11, 58, 120, 0.5);
+  }
+
+  .selection\:bg-brand-red\/30::selection,
+  .selection\:bg-brand-red\/30 *::selection {
+    background-color: rgba(11, 58, 120, 0.3);
+  }
+
+  .selection\:bg-brand-red\/30::-moz-selection,
+  .selection\:bg-brand-red\/30 *::-moz-selection {
+    background-color: rgba(11, 58, 120, 0.3);
+  }
+
+  .from-brand-red\/20 {
+    --tw-gradient-from: rgba(11, 58, 120, 0.2) var(--tw-gradient-from-position);
+    --tw-gradient-to: rgba(11, 58, 120, 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+
+  .via-brand-red,
+  .via-brand-red\/40 {
+    --tw-gradient-to: rgba(11, 58, 120, 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), rgba(11, 58, 120, 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to);
+  }
+
+  .to-brand-red\/20 {
+    --tw-gradient-to: rgba(11, 58, 120, 0.2) var(--tw-gradient-to-position);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[#141418]/80 border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-md;
+  }
+
+  .input-field {
+    @apply bg-white/[0.03] border border-white/10 text-white px-5 py-4 rounded-none focus:outline-none focus:border-brand-red focus:bg-white/[0.05] transition-all duration-200 placeholder:text-white/10 text-sm tracking-wide font-medium;
+  }
+
+  .btn-primary {
+    @apply bg-brand-red hover:bg-[#082E5F] text-white px-10 py-4 rounded-none font-bold uppercase tracking-[0.15em] transition-all duration-200 active:scale-[0.98] shadow-[0_8px_25px_rgba(11,58,120,0.25)];
+  }
+
+  .btn-outline {
+    @apply border border-white/10 hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.05] text-white/60 hover:text-white px-10 py-4 rounded-none font-bold uppercase tracking-[0.15em] transition-all duration-200;
+  }
+}
+
+/* Custom scrollbar - Slim and minimal */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/5 rounded-full hover:bg-white/10;
+}
+
+/* Typing Caret Animation */
+@keyframes caret-blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-caret-blink {
+  animation: caret-blink 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+/* ==========================================================================
+   Premium Light Mode Overrides for Admin Console
+   ========================================================================== */
+.light-mode {
+  --bg-deep: #f3f4f6;
+  --bg-surface: #ffffff;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  background-color: #f3f4f6 !important;
+  color: #1f2937 !important;
+}
+
+/* Card Overrides */
+.light-mode .glass-card {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Card Hover Accent overrides */
+.light-mode .glass-card:hover {
+  border-color: rgba(125, 82, 255, 0.25) !important;
+}
+
+/* Input Overrides */
+.light-mode .input-field {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #111827 !important;
+}
+
+.light-mode .input-field:focus {
+  border-color: #7D52FF !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(125, 82, 255, 0.1) !important;
+}
+
+.light-mode .input-field::placeholder {
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Outline Buttons */
+.light-mode .btn-outline {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  background-color: rgba(0, 0, 0, 0.02) !important;
+  color: #4b5563 !important;
+}
+
+.light-mode .btn-outline:hover {
+  border-color: rgba(0, 0, 0, 0.25) !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: #111827 !important;
+}
+
+/* Dynamic Text Overrides under Light Mode */
+.light-mode .text-white {
+  color: #111827 !important;
+}
+
+/* Ensure primary buttons and their children maintain pure white text/icons */
+.light-mode .btn-primary,
+.light-mode .btn-primary * {
+  color: #ffffff !important;
+}
+
+.light-mode .text-white\/80 {
+  color: #1f2937 !important;
+}
+
+.light-mode .text-white\/60 {
+  color: #374151 !important;
+}
+
+.light-mode .text-white\/40 {
+  color: #4b5563 !important;
+}
+
+.light-mode .text-\[\#7c7b7a\] {
+  color: #4b5563 !important;
+}
+
+.light-mode .text-\[\#7c7b7a\]\/40 {
+  color: #9ca3af !important;
+}
+
+.light-mode .text-\[\#7c7b7a\]\/60 {
+  color: #6b7280 !important;
+}
+
+.light-mode .text-white\/30 {
+  color: #6b7280 !important;
+}
+
+.light-mode .text-white\/20,
+.light-mode .text-white\/25 {
+  color: #9ca3af !important;
+}
+
+.light-mode .text-white\/10,
+.light-mode .text-white\/5 {
+  color: #d1d5db !important;
+}
+
+/* Grid & Border overrides */
+.light-mode .border-white\/5,
+.light-mode .border-white\/10,
+.light-mode .border-white\/20,
+.light-mode .border-white\/30 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-mode .bg-white\/5,
+.light-mode .bg-white\/10,
+.light-mode .bg-white\/\[0\.02\],
+.light-mode .bg-white\/\[0\.03\],
+.light-mode .bg-white\/\[0\.01\],
+.light-mode .bg-white\/\[0\.04\],
+.light-mode .bg-white\/\[0\.05\] {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+.light-mode .hover\:bg-white\/5:hover,
+.light-mode .hover\:bg-white\/10:hover,
+.light-mode .hover\:bg-white\/\[0\.02\]:hover,
+.light-mode .hover\:bg-white\/\[0\.03\]:hover,
+.light-mode .hover\:bg-white\/\[0\.04\]:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Scrollbar adjustments */
+.light-mode ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light-mode ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15) !important;
+}
+
+.light-mode .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Input and placeholder legibility overrides */
+.light-mode input {
+  color: #111827 !important;
+}
+
+.light-mode input::placeholder {
+  color: rgba(0, 0, 0, 0.35) !important;
+}
+
+/* High-intensity glowing pulse animations for active guidance elements */
+@keyframes cyber-pulse-hard-dark {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(125, 82, 255, 0.45), 0 0 2px rgba(125, 82, 255, 0.2);
+    border-color: rgba(125, 82, 255, 0.45) !important;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(125, 82, 255, 0.95), 0 0 45px rgba(209, 116, 255, 0.65), inset 0 0 10px rgba(125, 82, 255, 0.3);
+    border-color: rgba(209, 116, 255, 0.9) !important;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes cyber-pulse-hard-light {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(125, 82, 255, 0.25);
+    border-color: rgba(125, 82, 255, 0.35) !important;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(125, 82, 255, 0.85), 0 0 30px rgba(125, 82, 255, 0.4), inset 0 0 8px rgba(125, 82, 255, 0.2);
+    border-color: rgba(125, 82, 255, 0.85) !important;
+    transform: scale(1.06);
+  }
+}
+
+.animate-cyber-pulse {
+  animation: cyber-pulse-hard-dark 2.2s infinite ease-in-out !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+.light-mode .animate-cyber-pulse {
+  animation: cyber-pulse-hard-light 2.2s infinite ease-in-out !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+/* Dropdown/Select option color styling to guarantee text readability in modern browsers */
+select option {
+  background-color: #141418 !important;
+  color: #ffffff !important;
+}
+
+.light-mode select option {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+}
+
